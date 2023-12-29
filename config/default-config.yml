@@ -45,6 +45,18 @@ sites:
     hosts:
       - two.wordpress.test
 
+  hacklab-jkl:
+    skip_provisioning: false
+    description: "Hacklab Jyväskylä"
+    repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
+    php: 8.2
+    hosts:
+      - jkl.hacklab.test
+    custom:
+      wpconfig_constants:
+        WP_DEBUG: true
+        WP_DEBUG_LOG: true
+
   # The following commented out site configuration will create a standard WordPress
   # site in www/example-site/ available at http://mysite.test.
   # Remember, whitespace is significant! Tabs and spaces mean different things
