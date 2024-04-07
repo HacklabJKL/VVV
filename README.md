@@ -1,5 +1,3 @@
-**STATUS: EARLY ALPHA***
-
 This repo contains a "VVV" Vagrant / VirtualBox based local development environment setup for jkl.hacklab.fi site.
 
 It supports GIT based theme and plugin development workflow using popular PHP/WP development tools:
@@ -64,7 +62,9 @@ Validate that `ssh jonne` commands connects to server correctly and then then ru
 ./pull-production.sh
 ```
 
-After which http://jkl.hacklab.test site should be available for logging in with production credentials.
+After which http://jkl.hacklab.test site should be available for logging in with production credentials. 
+
+If using existing VVV environment, copy the [pull-production.sh](https://raw.githubusercontent.com/HacklabJKL/VVV/develop/pull-production.sh) script into VVV root path and make it executable with `chmod +x pull-production.sh` before running it.
 
 ## HTTPS setup
 
