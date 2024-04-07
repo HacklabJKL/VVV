@@ -20,16 +20,16 @@ It works on computers with X86/AMD64 CPU. Apple Silicon Mac users would need to 
 Add to config.yml:
 
     hacklab-jkl:
-    skip_provisioning: false
-    description: "Hacklab Jyväskylä"
-    repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
-    php: 8.2
-    hosts:
-      - jkl.hacklab.test
-    custom:
-      wpconfig_constants:
-        WP_DEBUG: true
-        WP_DEBUG_LOG: true  # logs to wp-content/debug.log
+      skip_provisioning: false
+      description: "Hacklab Jyväskylä"
+      repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
+      php: 8.2
+      hosts:
+        - jkl.hacklab.test
+      custom:
+        wpconfig_constants:
+          WP_DEBUG: true
+          WP_DEBUG_LOG: true  # logs to wp-content/debug.log
 
 Then run `vagrant reload --provision` and site should be initialized in few minutes. Skip over the next "Setup from scratch" section.
 
