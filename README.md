@@ -1,10 +1,8 @@
-This repo contains a "VVV" Vagrant / VirtualBox based local development environment setup for jkl.hacklab.fi site.
-
-It supports GIT based theme and plugin development workflow using popular PHP/WP development tools:
+This repo contains a "VVV" Vagrant / VirtualBox based local development environment setup for jkl.hacklab.fi site. It supports modern theme and plugin development workflow with popular PHP/WP development tools set up on a regular LEMP stack on Ubuntu:
 
 - PHP error logs at `www/hacklab-jkl/wp-content/debug.log`
 - [WP-CLI](https://make.wordpress.org/cli/handbook/guides/quick-start/) tool
-- PhpMyAdmin and readiness to [connect external SQL clients](https://varyingvagrantvagrants.org/docs/en-US/references/sql-client/) like DBeaver etc.
+- PhpMyAdmin and readiness to [connect external SQL clients](https://varyingvagrantvagrants.org/docs/en-US/references/sql-client/) like DBeaver CE etc.
 - IDE features
   - LSP (go-to-declaration etc. just start editor in www-root), 
   - XDebug (see notes on later section for config)
@@ -12,7 +10,11 @@ It supports GIT based theme and plugin development workflow using popular PHP/WP
 - Automatic hosts file config for development domain, access via http://jkl.hacklab.test
 - Composer etc.
 
-It works on computers with X86/AMD64 CPU. Apple Silicon Mac users would need to use commercial version of Parallels to be able to run this (YMMV) or use something else like [Docker based WP-ENV](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) or [LocalWP app](https://localwp.com/). The basic sync script `pull-production.sh` written in bash could also be useful as a starting point with other development environment setups.
+VVV is long running project and has nearly everything required for development while it can seem a bit heavy and monolithic (and more tied to AMD64). It's still a very active open source project with developers keeping it up to date and responding to guestions in support channels.
+
+Other development environment tools can be leveraged also with some minor changes in the `pull-production.sh` sync script written to be run in VVV root path.
+
+Apple Silicon Mac would need to use commercial version of Parallels to be able to run Vagrant. Better options may be to run Vagrant on a separate AMD64 laptop or to use [LocalWP app](https://localwp.com/) with modified sync script. Container based [WP-ENV](https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/) tool and plain container images are available also.
 
 ## Setup with existing VVV environment
 Add to config.yml:
