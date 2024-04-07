@@ -30,7 +30,7 @@ PROD_WWW_PATH=/var/sites/jkl.hacklab.fi
 PROD_DOMAIN=jkl.hacklab.fi
 
 DEV_DOMAIN=jkl.hacklab.test
-VAGRANT_WWW_PATH=/srv/www/hacklab/public_html
+VAGRANT_WWW_PATH=/srv/www/hacklab-jkl/public_html
 
 # Change cwd to this script file's path
 
