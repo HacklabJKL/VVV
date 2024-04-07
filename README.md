@@ -4,6 +4,7 @@ This repo contains a "VVV" Vagrant / VirtualBox based local development environm
 
 It supports GIT based theme and plugin development workflow using popular PHP/WP development tools:
 
+- PHP error logs at `www/hacklab-jkl/wp-content/debug.log`
 - [WP-CLI](https://make.wordpress.org/cli/handbook/guides/quick-start/) tool
 - PhpMyAdmin and readiness to [connect external SQL clients](https://varyingvagrantvagrants.org/docs/en-US/references/sql-client/) like DBeaver etc.
 - IDE features
@@ -15,7 +16,24 @@ It supports GIT based theme and plugin development workflow using popular PHP/WP
 
 It works on computers with X86/AMD64 CPU. Apple Silicon Mac users would need to use commercial version of Parallels to be able to run this (YMMV) or use something else like [Docker based WP-ENV](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) or [LocalWP app](https://localwp.com/). The basic sync script `pull-production.sh` written in bash could also be useful as a starting point with other development environment setups.
 
-## How to run it
+## Setup with existing VVV environment
+Add to config.yml:
+
+    hacklab-jkl:
+    skip_provisioning: false
+    description: "Hacklab Jyväskylä"
+    repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
+    php: 8.2
+    hosts:
+      - jkl.hacklab.test
+    custom:
+      wpconfig_constants:
+        WP_DEBUG: true
+        WP_DEBUG_LOG: true  # logs to wp-content/debug.log
+
+Then run `vagrant reload --provision` and site should be initialized in few minutes. Skip over the next "Setup from scratch" section.
+
+## Setup from scratch
 
 By default the VVV stock configuration is set to create http://jkl.hacklab.test site at `www/hacklab-jkl/public_html`. Additionally http://one.wordpress.test and http://two.wordpress.test stock WP sites are available for testing.
 
@@ -28,7 +46,8 @@ vagrant plugin install --local
 vagrant up --provision
 ```
 
-After finishing, make sure you have working server credentials with public key authentication set up to Hacklab Jkl WordPress server "Jonne" to be able to pull production files and database to the local development environment.
+## Pulling live site to development environment
+After finishing initial setup, make sure you have working server credentials with public key authentication set up to Hacklab Jkl WordPress server "Jonne" to be able to pull production files and database to the local development environment.
 
 Add "jonne" into local development machine's SSH config eg. with `vi ~/.ssh/config`:
 
