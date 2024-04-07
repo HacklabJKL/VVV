@@ -77,7 +77,7 @@ After that all upload folder pictures will give 404's which can be annoying. Ngi
 
 ## XDebug step debugger
 
-Map `/home/<local_username>/<path_to>/vvv/www/` path to `/srv/www/` and it should work. Run `xdebug_on` command in Vagrant if it doesn't enable XDebug for some reason.
+Map `/home/<local_username>/<path_to>/vvv/www/` path to `/srv/www/` and it should work. Run `xdebug_on` command in Vagrant if it doesn't enable XDebug for some reason (eg. `vagrant ssh -c "xdebug_on"`).
 
 Example NeoVim config:
 
