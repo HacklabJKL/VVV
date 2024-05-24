@@ -21,9 +21,16 @@ fi
 # check if "jonne" ssh-host exists in ~/.ssh/config
 
 if ! grep -q "Host jonne" ~/.ssh/config; then
-	echo "Error: ssh host 'jonne' not found in ~/.ssh/config" consult README.md or modify script
+	echo "Error: ssh host 'jonne' not found in ~/.ssh/config consult README.md or modify script"
 	exit 1
 fi
+
+# Eg. in ~/.ssh/config
+
+# Host jonne
+#     hostname <SSH HOSTNAME HERE!>
+#     user <SSH USERNAME HERE!>
+#     port <SSH PORT HERE!>
 
 PROD_SSH_HOST=jonne
 PROD_WWW_PATH=/var/sites/jkl.hacklab.fi
@@ -94,6 +101,6 @@ vagrant ssh -c "wp --path=/srv/www/hacklab-jkl/public_html search-replace \"http
 
 vagrant ssh -c "wp --path=$VAGRANT_WWW_PATH option update admin_email "dev-email@flywheel.test" --skip-plugins"
 vagrant ssh -c "wp --path=$VAGRANT_WWW_PATH cache flush --skip-plugins"
-# vagrant ssh -c "wp --path=$VAGRANT_WWW_PATH plugin deactivate two-factor-authentication --skip-plugins"
+vagrant ssh -c "wp --path=$VAGRANT_WWW_PATH plugin install --activate debug-bar debug-bar-timber --skip-plugins"
 
 echo "Sync complete, access via http://$DEV_DOMAIN"
