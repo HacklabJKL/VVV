@@ -1,3 +1,4 @@
+# This repo is deprecated, please see: [https://codeberg.org/hacklabjkl/wp-scripts](https://codeberg.org/hacklabjkl/wp-scripts)
 This repo contains a "VVV" Vagrant / VirtualBox based local development environment setup for jkl.hacklab.fi site. It supports modern theme and plugin development workflow with popular PHP/WP development tools set up on a regular LEMP stack on Ubuntu:
 
 - PHP error logs at `www/hacklab-jkl/wp-content/debug.log`
